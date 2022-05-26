@@ -35,6 +35,7 @@ public class ClassificationServices {
 	public Classification updateClassification(Classification clf3,int id) {
 		Classification clf=new Classification();
 		clf.setId(clf3.getId());
+		clf.setName(clf3.getName());
 		clf.setDescription(clf3.getDescription());
 		clf.setTag(clf3.getTag());
 		this.clfRepo.save(clf);

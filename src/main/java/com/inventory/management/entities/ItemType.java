@@ -7,28 +7,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.inventory.management.entities.Classification;
+
 @Entity
-public class Classification {
+public class ItemType {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String description;
-	private String tag;
-	@OneToOne(mappedBy="classification")
-	@JsonBackReference
-	private ItemType it;
-	public Classification() {
+	@OneToOne(cascade=CascadeType.ALL)
+	private Classification classification;
+	public ItemType() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Classification(int id, String name, String description, String tag) {
+	public ItemType(int id, String name, String description, Classification classification) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.tag = tag;
+		this.classification = classification;
 	}
 	public int getId() {
 		return id;
@@ -48,11 +47,10 @@ public class Classification {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getTag() {
-		return tag;
+	public Classification getClassification() {
+		return classification;
 	}
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setClassification(Classification classification) {
+		this.classification = classification;
 	}
-	
 }
