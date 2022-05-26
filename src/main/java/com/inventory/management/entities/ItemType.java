@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.inventory.management.entities.Classification;
 
 @Entity
@@ -18,6 +19,9 @@ public class ItemType {
 	private String description;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Classification classification;
+	@OneToOne(mappedBy="itemtype")
+	@JsonBackReference
+	private Item item;
 	public ItemType() {
 		super();
 		// TODO Auto-generated constructor stub
