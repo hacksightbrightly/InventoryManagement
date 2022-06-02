@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.rest.entities.Book;
-import com.api.rest.services.BookServices;
 import com.inventory.management.entities.Classification;
 import com.inventory.management.services.ClassificationServices;
 
