@@ -18,11 +18,7 @@ public class StockServices {
 
 	public Stock getStockById(int id) {
 		Stock stock2 = null;
-		try {
-			stock2 = this.stockRepo.findById(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		stock2 = this.stockRepo.findById(id);
 		return stock2;
 	}
 

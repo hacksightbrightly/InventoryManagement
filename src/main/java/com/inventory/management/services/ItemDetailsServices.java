@@ -18,11 +18,7 @@ public class ItemDetailsServices implements ItemDetailsServicesInterface {
 
 	public ItemDetails getItemDetailsById(int id) {
 		ItemDetails itd2 = null;
-		try {
-			itd2 = this.itdRepo.findById(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		itd2 = this.itdRepo.findById(id);
 		return itd2;
 	}
 

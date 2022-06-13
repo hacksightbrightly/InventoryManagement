@@ -20,11 +20,7 @@ public class ItemServices implements ItemServicesInterface {
 
 	public Item getItemById(int id) {
 		Item it1 = null;
-		try {
-			it1 = this.itRepo.findById(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		it1 = this.itRepo.findById(id);
 		return it1;
 	}
 

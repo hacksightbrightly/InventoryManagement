@@ -20,11 +20,7 @@ public class ClassificationServices implements ClassificationServicesInterface {
 
 	public Classification getClassificationById(int id) {
 		Classification clf2 = null;
-		try {
-			clf2 = this.clfRepo.findById(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		clf2 = this.clfRepo.findById(id);
 		return clf2;
 	}
 
