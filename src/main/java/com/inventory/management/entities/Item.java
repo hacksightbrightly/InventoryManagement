@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Item {
 	@Id
@@ -18,6 +20,13 @@ public class Item {
 	private String categories;
 	private int company_id;
 	private int stock_id;
+	@OneToOne(mappedBy = "item")
+	@JsonBackReference
+	private ItemDetails itemDetail;
+	@OneToOne(mappedBy = "item")
+	@JsonBackReference
+	private Stock stock;
+	
 
 	public Item() {
 		super();
