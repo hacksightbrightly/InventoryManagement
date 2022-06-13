@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inventory.management.entities.ItemType;
 import com.inventory.management.services.ItemTypeServices;
+import com.inventory.management.services.ItemTypeServicesInterface;
 
 @RestController
 public class ItemTypeController {
 	@Autowired
-	private ItemTypeServices itServices;
+	private ItemTypeServicesInterface itServices;
 
 	@GetMapping("/itemtype")
 	public ResponseEntity<List<ItemType>> handler1() {

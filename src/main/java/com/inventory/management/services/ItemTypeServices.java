@@ -10,7 +10,7 @@ import com.inventory.management.dao.ItemTypeRepo;
 import com.inventory.management.entities.ItemType;
 
 @Component
-public class ItemTypeServices {
+public class ItemTypeServices implements ItemTypeServicesInterface {
 	@Autowired
 	private ItemTypeRepo itRepo;
 

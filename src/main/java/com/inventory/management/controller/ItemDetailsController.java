@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inventory.management.entities.ItemDetails;
 import com.inventory.management.services.ItemDetailsServices;
+import com.inventory.management.services.ItemDetailsServicesInterface;
 
 @RestController
 public class ItemDetailsController
 {
 
 	@Autowired
-	private ItemDetailsServices itdServices;
+	private ItemDetailsServicesInterface itdServices;
 
 	@GetMapping("/itemDetails")
 	public ResponseEntity<List<ItemDetails>> handler1() {

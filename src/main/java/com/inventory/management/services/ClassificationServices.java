@@ -9,7 +9,7 @@ import com.inventory.management.dao.ClassificationRepo;
 import com.inventory.management.entities.Classification;
 
 @Component
-public class ClassificationServices {
+public class ClassificationServices implements ClassificationServicesInterface {
 	@Autowired
 	private ClassificationRepo clfRepo;
 

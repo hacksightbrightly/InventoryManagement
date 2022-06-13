@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inventory.management.entities.Stock;
 import com.inventory.management.services.StockServices;
+import com.inventory.management.services.StockServicesInterface;
 
 @RestController
 public class StockController {
 
 	@Autowired
-	private StockServices stockServices;
+	private StockServicesInterface stockServices;
 
 	@GetMapping("/stock")
 	public ResponseEntity<List<Stock>> handler1() {

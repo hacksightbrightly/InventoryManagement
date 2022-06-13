@@ -7,7 +7,7 @@ import com.inventory.management.dao.ItemDetailsRepo;
 import com.inventory.management.entities.ItemDetails;
 
 @Component
-public class ItemDetailsServices {
+public class ItemDetailsServices implements ItemDetailsServicesInterface {
 	@Autowired
 	private ItemDetailsRepo itdRepo;
 

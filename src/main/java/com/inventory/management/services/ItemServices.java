@@ -9,7 +9,7 @@ import com.inventory.management.dao.ItemRepo;
 import com.inventory.management.entities.Item;
 
 @Component
-public class ItemServices {
+public class ItemServices implements ItemServicesInterface {
 	@Autowired
 	private ItemRepo itRepo;
 

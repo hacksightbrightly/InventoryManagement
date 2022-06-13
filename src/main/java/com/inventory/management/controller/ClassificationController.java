@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inventory.management.entities.Classification;
-import com.inventory.management.helper.ClassificationHelper;
-import com.inventory.management.services.ClassificationServices;
+import com.inventory.management.services.ClassificationServicesInterface;
 
 @RestController
 public class ClassificationController {
 	@Autowired
-	private ClassificationServices clfServices;
+	private ClassificationServicesInterface clfServices;
 
 	@GetMapping("/classification")
 	public ResponseEntity<List<Classification>> handler1() {	
