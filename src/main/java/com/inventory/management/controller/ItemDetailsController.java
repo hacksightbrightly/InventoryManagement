@@ -17,71 +17,69 @@ import com.inventory.management.entities.Item_Details;
 import com.inventory.management.services.Item_DetailsServices;
 
 @RestController
+<<<<<<< HEAD:src/main/java/com/inventory/management/controller/ItemDetailsController.java
 public class ItemDetailsController
 {
 	
+=======
+public class Item_DetailsController {
+
+>>>>>>> 493542dbc4d927b7e58c5ef316ef9ec95cbfd84f:src/main/java/com/inventory/management/controller/Item_DetailsController.java
 	@Autowired
-	private Item_DetailsServices  itdServices;
+	private Item_DetailsServices itdServices;
+
 	@GetMapping("/item_Details")
-	public ResponseEntity<List<Item_Details>> handler1() 
-	{	
-		List<Item_Details>itdList=this.itdServices.getAllItem_Details();
-		if(itdList.size()<=0)
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		return ResponseEntity.of(Optional.of(itdList));		
-	}
-	
-	@GetMapping("/item_Details/{id}")	
-	public ResponseEntity<Item_Details> handler2(@PathVariable("id") int id) 
-	{		
-		Item_Details itd= this.itdServices.getItem_DetailsById(id);	
-		if(itd==null) 
-		{
+	public ResponseEntity<List<Item_Details>> handler1() {
+		List<Item_Details> itdList = this.itdServices.getAllItem_Details();
+
+		if (itdList.size() <= 0) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
+
+		return ResponseEntity.of(Optional.of(itdList));
+	}
+
+	@GetMapping("/item_Details/{id}")
+	public ResponseEntity<Item_Details> handler2(@PathVariable("id") int id) {
+		Item_Details itd = this.itdServices.getItem_DetailsById(id);
+
+		if (itd == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+
 		return ResponseEntity.of(Optional.of(itd));
 	}
-	
-	@PostMapping("/item_Details")	
-	public ResponseEntity<Item_Details> handler3(@RequestBody Item_Details itd) 
-	{		
-		try
-		{
+
+	@PostMapping("/item_Details")
+	public ResponseEntity<Item_Details> handler3(@RequestBody Item_Details itd) {
+		try {
 			this.itdServices.addItem_Details(itd);
 			return ResponseEntity.status(HttpStatus.CREATED).body(itd);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
+
 	@DeleteMapping("/item_Details/{id}")
-	public ResponseEntity<Void> handler4(@PathVariable("id") int id) 
-	{
-		try 
-		{
+	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
+		try {
 			this.itdServices.deleteItem_Details(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}
-		catch(Exception e) 
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
 
 	@PutMapping("/item_Details/{id}")
-	public ResponseEntity<Item_Details> handler5(@RequestBody Item_Details itd, @PathVariable("id") int id) 
-	{
-		try
-		{
-			this.itdServices.updateItem_Details(itd,id);
+	public ResponseEntity<Item_Details> handler5(@RequestBody Item_Details itd, @PathVariable("id") int id) {
+		try {
+			this.itdServices.updateItem_Details(itd, id);
 			return ResponseEntity.of(Optional.of(itd));
-		}
-		catch(Exception e) 
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
+
 }

@@ -8,18 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Item_Details 
-{
+public class Item_Details {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private int item_id;
 	private String description;
 	private String media;
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Item item;
-	
+
 	public Item_Details() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -82,6 +81,5 @@ public class Item_Details
 	public void setItem(Item item) {
 		this.item = item;
 	}
-	
-	
+
 }

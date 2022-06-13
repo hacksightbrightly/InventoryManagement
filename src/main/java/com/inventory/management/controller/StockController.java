@@ -17,71 +17,61 @@ import com.inventory.management.entities.Stock;
 import com.inventory.management.services.StockServices;
 
 @RestController
-public class StockController
-{
-	
+public class StockController {
+
 	@Autowired
-	private StockServices  stockServices;
+	private StockServices stockServices;
+
 	@GetMapping("/stock")
-	public ResponseEntity<List<Stock>> handler1() 
-	{	
-		List<Stock>stockList=this.stockServices.getAllStock();
-		if(stockList.size()<=0)
+	public ResponseEntity<List<Stock>> handler1() {
+		List<Stock> stockList = this.stockServices.getAllStock();
+
+		if (stockList.size() <= 0) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		return ResponseEntity.of(Optional.of(stockList));		
+		}
+
+		return ResponseEntity.of(Optional.of(stockList));
 	}
-	
-	@GetMapping("/stock/{id}")	
-	public ResponseEntity<Stock> handler2(@PathVariable("id") int id) 
-	{		
-		Stock stock= this.stockServices.getStockById(id);	
-		if(stock==null) 
-		{
+
+	@GetMapping("/stock/{id}")
+	public ResponseEntity<Stock> handler2(@PathVariable("id") int id) {
+		Stock stock = this.stockServices.getStockById(id);
+		if (stock == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.of(Optional.of(stock));
 	}
-	
-	@PostMapping("/stock")	
-	public ResponseEntity<Stock> handler3(@RequestBody Stock stock) 
-	{		
-		try
-		{
+
+	@PostMapping("/stock")
+	public ResponseEntity<Stock> handler3(@RequestBody Stock stock) {
+		try {
 			this.stockServices.addStock(stock);
 			return ResponseEntity.status(HttpStatus.CREATED).body(stock);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
+
 	@DeleteMapping("/stock/{id}")
-	public ResponseEntity<Void> handler4(@PathVariable("id") int id) 
-	{
-		try 
-		{
+	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
+		try {
 			this.stockServices.deleteStock(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}
-		catch(Exception e) 
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
 
 	@PutMapping("/stock/{id}")
-	public ResponseEntity<Stock> handler5(@RequestBody Stock stock, @PathVariable("id") int id) 
-	{
-		try
-		{
-			this.stockServices.updateStock(stock,id);
+	public ResponseEntity<Stock> handler5(@RequestBody Stock stock, @PathVariable("id") int id) {
+		try {
+			this.stockServices.updateStock(stock, id);
 			return ResponseEntity.of(Optional.of(stock));
-		}
-		catch(Exception e) 
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
+
 }
