@@ -13,19 +13,21 @@ import com.inventory.management.entities.Classification;
 @Entity
 public class ItemType {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String description;
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Classification classification;
-	@OneToOne(mappedBy="itemtype")
+	@OneToOne(mappedBy = "itemtype")
 	@JsonBackReference
 	private Item item;
+
 	public ItemType() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public ItemType(int id, String name, String description, Classification classification) {
 		super();
 		this.id = id;
@@ -33,27 +35,35 @@ public class ItemType {
 		this.description = description;
 		this.classification = classification;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public Classification getClassification() {
 		return classification;
 	}
+
 	public void setClassification(Classification classification) {
 		this.classification = classification;
 	}

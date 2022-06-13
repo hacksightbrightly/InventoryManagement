@@ -13,25 +13,29 @@ import com.inventory.management.entities.ItemType;
 public class ItemTypeServices {
 	@Autowired
 	private ItemTypeRepo itRepo;
-	public List<ItemType> getAllItemType(){
-		List<ItemType> itList=(List<ItemType>) this.itRepo.findAll();
+
+	public List<ItemType> getAllItemType() {
+		List<ItemType> itList = (List<ItemType>) this.itRepo.findAll();
 		return itList;
 	}
-	public ItemType getItemTypeById(int id){
-	  ItemType it1 = null;
-	  try {
-	  it1=this.itRepo.findById(id);
-	  }catch(Exception e) {
-		  e.printStackTrace();
-	  }
+
+	public ItemType getItemTypeById(int id) {
+		ItemType it1 = null;
+		try {
+			it1 = this.itRepo.findById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return it1;
 	}
+
 	public ItemType addItemType(ItemType it2) {
 		this.itRepo.save(it2);
 		return it2;
 	}
+
 	public ItemType updateItemType(ItemType it3) {
-		ItemType it= new ItemType();
+		ItemType it = new ItemType();
 		it.setId(it3.getId());
 		it.setDescription(it3.getDescription());
 		it.setName(it3.getName());
@@ -39,6 +43,7 @@ public class ItemTypeServices {
 		this.itRepo.save(it);
 		return it;
 	}
+
 	public void deleteItemType(int id) {
 		this.itRepo.deleteById(id);
 	}
