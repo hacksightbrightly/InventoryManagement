@@ -13,24 +13,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inventory.management.entities.Item_Details;
-import com.inventory.management.services.Item_DetailsServices;
+import com.inventory.management.entities.ItemDetails;
+import com.inventory.management.services.ItemDetailsServices;
 
 @RestController
-<<<<<<< HEAD:src/main/java/com/inventory/management/controller/ItemDetailsController.java
 public class ItemDetailsController
 {
-	
-=======
-public class Item_DetailsController {
 
->>>>>>> 493542dbc4d927b7e58c5ef316ef9ec95cbfd84f:src/main/java/com/inventory/management/controller/Item_DetailsController.java
 	@Autowired
-	private Item_DetailsServices itdServices;
+	private ItemDetailsServices itdServices;
 
-	@GetMapping("/item_Details")
-	public ResponseEntity<List<Item_Details>> handler1() {
-		List<Item_Details> itdList = this.itdServices.getAllItem_Details();
+	@GetMapping("/itemDetails")
+	public ResponseEntity<List<ItemDetails>> handler1() {
+		List<ItemDetails> itdList = this.itdServices.getAllItemDetails();
 
 		if (itdList.size() <= 0) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -39,9 +34,9 @@ public class Item_DetailsController {
 		return ResponseEntity.of(Optional.of(itdList));
 	}
 
-	@GetMapping("/item_Details/{id}")
-	public ResponseEntity<Item_Details> handler2(@PathVariable("id") int id) {
-		Item_Details itd = this.itdServices.getItem_DetailsById(id);
+	@GetMapping("/itemDetails/{id}")
+	public ResponseEntity<ItemDetails> handler2(@PathVariable("id") int id) {
+		ItemDetails itd = this.itdServices.getItemDetailsById(id);
 
 		if (itd == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -50,20 +45,20 @@ public class Item_DetailsController {
 		return ResponseEntity.of(Optional.of(itd));
 	}
 
-	@PostMapping("/item_Details")
-	public ResponseEntity<Item_Details> handler3(@RequestBody Item_Details itd) {
+	@PostMapping("/itemDetails")
+	public ResponseEntity<ItemDetails> handler3(@RequestBody ItemDetails itd) {
 		try {
-			this.itdServices.addItem_Details(itd);
+			this.itdServices.addItemDetails(itd);
 			return ResponseEntity.status(HttpStatus.CREATED).body(itd);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
 
-	@DeleteMapping("/item_Details/{id}")
+	@DeleteMapping("/itemDetails/{id}")
 	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
 		try {
-			this.itdServices.deleteItem_Details(id);
+			this.itdServices.deleteItemDetails(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,15 +66,14 @@ public class Item_DetailsController {
 		}
 	}
 
-	@PutMapping("/item_Details/{id}")
-	public ResponseEntity<Item_Details> handler5(@RequestBody Item_Details itd, @PathVariable("id") int id) {
+	@PutMapping("/itemDetails/{id}")
+	public ResponseEntity<ItemDetails> handler5(@RequestBody ItemDetails itd, @PathVariable("id") int id) {
 		try {
-			this.itdServices.updateItem_Details(itd, id);
+			this.itdServices.updateItemDetails(itd, id);
 			return ResponseEntity.of(Optional.of(itd));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
-
 }

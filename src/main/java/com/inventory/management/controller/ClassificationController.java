@@ -24,30 +24,12 @@ public class ClassificationController {
 	private ClassificationServices clfServices;
 
 	@GetMapping("/classification")
-<<<<<<< HEAD
 	public ResponseEntity<List<Classification>> handler1() {	
 		List<Classification>clfList=this.clfServices.getAllClassification();
 		if(clfList.size()<=0)
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		return ResponseEntity.of(Optional.of(clfList));		
 	}
-	@GetMapping("/classification/{id}")	
-	public ResponseEntity<Classification> handler2(@PathVariable("id") int id) {		
-		Classification clf= this.clfServices.getClassificationById(id);	
-		
-		if(clf == null) {
-=======
-	public ResponseEntity<List<Classification>> handler1() {
-		List<Classification> clfList = this.clfServices.getAllClassification();
-
-		if (clfList.size() <= 0) {
->>>>>>> 493542dbc4d927b7e58c5ef316ef9ec95cbfd84f
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
-
-		return ResponseEntity.of(Optional.of(clfList));
-	}
-
 	@GetMapping("/classification/{id}")
 	public ResponseEntity<Classification> handler2(@PathVariable("id") int id) {
 		Classification clf = this.clfServices.getClassificationById(id);
@@ -68,11 +50,7 @@ public class ClassificationController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 493542dbc4d927b7e58c5ef316ef9ec95cbfd84f
 	@DeleteMapping("/classification/{id}")
 	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
 		try {

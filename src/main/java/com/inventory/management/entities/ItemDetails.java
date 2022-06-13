@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Item_Details {
+public class ItemDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -19,12 +19,12 @@ public class Item_Details {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Item item;
 
-	public Item_Details() {
+	public ItemDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Item_Details(int id, String name, int item_id, String description, String media, Item item) {
+	public ItemDetails(int id, String name, int item_id, String description, String media, Item item) {
 		super();
 		this.id = id;
 		this.name = name;
