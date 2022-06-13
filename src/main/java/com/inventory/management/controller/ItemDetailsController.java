@@ -17,7 +17,7 @@ import com.inventory.management.entities.Item_Details;
 import com.inventory.management.services.Item_DetailsServices;
 
 @RestController
-public class Item_DetailsController
+public class ItemDetailsController
 {
 	
 	@Autowired

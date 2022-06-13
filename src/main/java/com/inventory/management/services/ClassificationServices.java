@@ -26,8 +26,7 @@ public class ClassificationServices {
 		return clf2;
 	}
 	public Classification addClassification(Classification clf3) {
-		this.clfRepo.save(clf3);
-		return clf3;
+		return this.clfRepo.save(clf3);
 	}
 	public void deleteClassification(int id) {
 		clfRepo.deleteById(id);

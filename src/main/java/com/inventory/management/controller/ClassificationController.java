@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inventory.management.entities.Classification;
+import com.inventory.management.helper.ClassificationHelper;
 import com.inventory.management.services.ClassificationServices;
 
 @RestController
@@ -31,7 +32,8 @@ public class ClassificationController {
 	@GetMapping("/classification/{id}")	
 	public ResponseEntity<Classification> handler2(@PathVariable("id") int id) {		
 		Classification clf= this.clfServices.getClassificationById(id);	
-		if(clf==null) {
+		
+		if(clf == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.of(Optional.of(clf));
@@ -47,6 +49,7 @@ public class ClassificationController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
+	
 	@DeleteMapping("/classification/{id}")
 	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
 		try {
