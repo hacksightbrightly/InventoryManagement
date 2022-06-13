@@ -27,13 +27,13 @@ public class Item {
 	@JsonBackReference
 	private Stock stock;
 	
-
 	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Item(int uniqueID, ItemType it, int code, String categories, int company_id, int stock_id) {
+	public Item(int uniqueID, ItemType itemtype, int code, String categories, int company_id, int stock_id,
+			ItemDetails itemDetail, Stock stock) {
 		super();
 		UniqueID = uniqueID;
 		this.itemtype = itemtype;
@@ -41,6 +41,8 @@ public class Item {
 		this.categories = categories;
 		this.company_id = company_id;
 		this.stock_id = stock_id;
+		this.itemDetail = itemDetail;
+		this.stock = stock;
 	}
 
 	public int getUniqueID() {
@@ -69,6 +71,22 @@ public class Item {
 
 	public String getCategories() {
 		return categories;
+	}
+
+	public ItemDetails getItemDetail() {
+		return itemDetail;
+	}
+
+	public void setItemDetail(ItemDetails itemDetail) {
+		this.itemDetail = itemDetail;
+	}
+
+	public Stock getStock() {
+		return stock;
+	}
+
+	public void setStock(Stock stock) {
+		this.stock = stock;
 	}
 
 	public void setCategories(String categories) {
