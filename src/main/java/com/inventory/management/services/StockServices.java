@@ -7,7 +7,7 @@ import com.inventory.management.dao.StockRepo;
 import com.inventory.management.entities.Stock;
 
 @Component
-public class StockServices {
+public class StockServices implements StockServicesInterface {
 	@Autowired
 	private StockRepo stockRepo;
 

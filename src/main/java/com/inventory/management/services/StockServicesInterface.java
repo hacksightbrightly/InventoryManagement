@@ -10,9 +10,9 @@ public interface StockServicesInterface {
 
 	public Stock getStockById(int id);
 
-	public Stock addStock(Stock stock3);
+	public Stock addStock(Stock stock);
 
 	public void deleteStock(int id);
 	
-	public Stock updateStock(Stock stock3, int id);
+	public Stock updateStock(Stock stock, int id);
 }
