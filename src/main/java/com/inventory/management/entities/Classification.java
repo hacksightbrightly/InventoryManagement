@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Classification {
@@ -17,7 +18,6 @@ public class Classification {
 	private String description;
 	private String tag;
 	@OneToOne(mappedBy = "classification")
-	@JsonBackReference
 	private ItemType it;
 
 	public Classification() {

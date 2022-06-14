@@ -21,10 +21,8 @@ public class Item {
 	private int company_id;
 	private int stock_id;
 	@OneToOne(mappedBy = "item")
-	@JsonBackReference
 	private ItemDetails itemDetail;
 	@OneToOne(mappedBy = "item")
-	@JsonBackReference
 	private Stock stock;
 	
 	public Item() {
