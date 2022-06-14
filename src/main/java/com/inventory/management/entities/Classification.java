@@ -26,17 +26,13 @@ public class Classification {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Classification(int id, String name, String description, String tag, ItemType it) {
+	public Classification(int id, String name, String description, String tag) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.tag = tag;
-		this.it = it;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -69,16 +65,5 @@ public class Classification {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
-
-
-	public ItemType getIt() {
-		return it;
-	}
-
-
-	public void setIt(ItemType it) {
-		this.it = it;
-	}
-	
 
 }
