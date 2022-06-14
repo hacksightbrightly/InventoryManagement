@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.inventory.management.entities.Classification;
 
+
 @Entity
 public class ItemType {
 	@Id
@@ -28,12 +29,13 @@ public class ItemType {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemType(int id, String name, String description, Classification classification) {
+	public ItemType(int id, String name, String description, Classification classification, Item item) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.classification = classification;
+		this.item = item;
 	}
 
 	public int getId() {
@@ -62,6 +64,14 @@ public class ItemType {
 
 	public Classification getClassification() {
 		return classification;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 	public void setClassification(Classification classification) {
