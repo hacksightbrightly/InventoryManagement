@@ -20,7 +20,6 @@ public class ItemType {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Classification classification;
 	@OneToOne(mappedBy = "itemtype")
-	@JsonBackReference
 	private Item item;
 
 	public ItemType() {
