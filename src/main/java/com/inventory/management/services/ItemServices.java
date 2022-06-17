@@ -33,9 +33,9 @@ public class ItemServices implements ItemServicesInterface {
 		Item it = new Item();
 		it.setCategories(it3.getCategories());
 		it.setCode(it3.getCode());
-		it.setCompany_id(it3.getCompany_id());
+		it.setCompanyId(it3.getCompanyId());
 		it.setItemtype(it3.getItemtype());
-		it.setStock_id(it3.getStock_id());
+		it.setStockId(it3.getStockId());
 		it.setUniqueID(it3.getUniqueID());
 		this.itRepo.save(it);
 		return it;

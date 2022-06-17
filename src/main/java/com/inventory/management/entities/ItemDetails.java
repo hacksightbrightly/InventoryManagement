@@ -13,7 +13,7 @@ public class ItemDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
-	private int item_id;
+	private int itemId;
 	private String description;
 	private String media;
 	@OneToOne(cascade = CascadeType.ALL)
@@ -24,11 +24,11 @@ public class ItemDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemDetails(int id, String name, int item_id, String description, String media, Item item) {
+	public ItemDetails(int id, String name, int itemId, String description, String media, Item item) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.item_id = item_id;
+		this.itemId = itemId;
 		this.description = description;
 		this.media = media;
 		this.item = item;
@@ -50,12 +50,12 @@ public class ItemDetails {
 		this.name = name;
 	}
 
-	public int getItem_id() {
-		return item_id;
+	public int getItemId() {
+		return itemId;
 	}
 
-	public void setItem_id(int item_id) {
-		this.item_id = item_id;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getDescription() {

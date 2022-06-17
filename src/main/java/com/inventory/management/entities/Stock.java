@@ -13,7 +13,7 @@ public class Stock {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private int availableQty;
-	private int location_Code;
+	private int locationCode;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Item item;
 
@@ -22,11 +22,11 @@ public class Stock {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Stock(int id, int availableQty, int location_Code, Item item) {
+	public Stock(int id, int availableQty, int locationCode, Item item) {
 		super();
 		this.id = id;
 		this.availableQty = availableQty;
-		this.location_Code = location_Code;
+		this.locationCode = locationCode;
 		this.item = item;
 	}
 
@@ -46,12 +46,12 @@ public class Stock {
 		this.availableQty = availableQty;
 	}
 
-	public int getLocation_Code() {
-		return location_Code;
+	public int getLocationCode() {
+		return locationCode;
 	}
 
-	public void setLocation_Code(int location_Code) {
-		this.location_Code = location_Code;
+	public void setLocationCode(int locationCode) {
+		this.locationCode = locationCode;
 	}
 
 	public Item getItem() {

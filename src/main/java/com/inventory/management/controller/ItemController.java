@@ -24,7 +24,7 @@ public class ItemController {
 	private ItemServicesInterface itServices;
 
 	@GetMapping("/item")
-	public ResponseEntity<List<Item>> handler1() {
+	public ResponseEntity<List<Item>> getMappingItem() {
 		List<Item> itList = this.itServices.getAllItem();
 
 		if (itList == null) {
@@ -35,7 +35,7 @@ public class ItemController {
 	}
 
 	@GetMapping("/item/{UniqueID}")
-	public ResponseEntity<Item> handler2(@PathVariable("UniqueID") int UniqueID) {
+	public ResponseEntity<Item> getMappingByIdItem(@PathVariable("UniqueID") int UniqueID) {
 		Item it1 = this.itServices.getItemById(UniqueID);
 
 		if (it1 == null) {
@@ -46,7 +46,7 @@ public class ItemController {
 	}
 
 	@PostMapping("/item")
-	public ResponseEntity<Item> handler3(@RequestBody Item it) {
+	public ResponseEntity<Item> postMappingItem(@RequestBody Item it) {
 		try {
 			Item it2 = this.itServices.addItem(it);
 			return ResponseEntity.status(HttpStatus.CREATED).body(it2);
@@ -56,7 +56,7 @@ public class ItemController {
 	}
 
 	@PutMapping("/item/{UniqueID}")
-	public ResponseEntity<Item> handler4(@RequestBody Item it, @PathVariable("UniqueID") int UniqueID) {
+	public ResponseEntity<Item> putMappingItem(@RequestBody Item it, @PathVariable("UniqueID") int UniqueID) {
 		try {
 			Item it3 = this.itServices.updateItem(it);
 			return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -67,7 +67,7 @@ public class ItemController {
 	}
 
 	@DeleteMapping("/item/{UniqueID}")
-	public ResponseEntity<Void> handler5(@PathVariable("UniqueID") int UniqueID) {
+	public ResponseEntity<Void> deleteMappingItem(@PathVariable("UniqueID") int UniqueID) {
 		try {
 			this.itServices.deleteItem(UniqueID);
 			return ResponseEntity.status(HttpStatus.ACCEPTED).build();

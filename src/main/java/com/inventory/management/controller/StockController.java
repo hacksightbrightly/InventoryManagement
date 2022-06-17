@@ -19,12 +19,11 @@ import com.inventory.management.services.StockServicesInterface;
 
 @RestController
 public class StockController {
-
 	@Autowired
 	private StockServicesInterface stockServices;
 
 	@GetMapping("/stock")
-	public ResponseEntity<List<Stock>> handler1() {
+	public ResponseEntity<List<Stock>> getMappingStock() {
 		List<Stock> stockList = this.stockServices.getAllStock();
 
 		if (stockList.size() <= 0) {
@@ -35,7 +34,7 @@ public class StockController {
 	}
 
 	@GetMapping("/stock/{id}")
-	public ResponseEntity<Stock> handler2(@PathVariable("id") int id) {
+	public ResponseEntity<Stock> getMappingByIdStock(@PathVariable("id") int id) {
 		Stock stock = this.stockServices.getStockById(id);
 		if (stock == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -44,7 +43,7 @@ public class StockController {
 	}
 
 	@PostMapping("/stock")
-	public ResponseEntity<Stock> handler3(@RequestBody Stock stock) {
+	public ResponseEntity<Stock> postMappingStock(@RequestBody Stock stock) {
 		try {
 			this.stockServices.addStock(stock);
 			return ResponseEntity.status(HttpStatus.CREATED).body(stock);
@@ -54,7 +53,7 @@ public class StockController {
 	}
 
 	@DeleteMapping("/stock/{id}")
-	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
+	public ResponseEntity<Void> deleteMappingStock(@PathVariable("id") int id) {
 		try {
 			this.stockServices.deleteStock(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -65,7 +64,7 @@ public class StockController {
 	}
 
 	@PutMapping("/stock/{id}")
-	public ResponseEntity<Stock> handler5(@RequestBody Stock stock, @PathVariable("id") int id) {
+	public ResponseEntity<Stock> putMappingStock(@RequestBody Stock stock, @PathVariable("id") int id) {
 		try {
 			this.stockServices.updateStock(stock, id);
 			return ResponseEntity.of(Optional.of(stock));
