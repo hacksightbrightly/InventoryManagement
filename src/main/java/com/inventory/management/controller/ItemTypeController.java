@@ -24,7 +24,7 @@ public class ItemTypeController {
 	private ItemTypeServicesInterface itServices;
 
 	@GetMapping("/itemtype")
-	public ResponseEntity<List<ItemType>> handler1() {
+	public ResponseEntity<List<ItemType>> getMappingItemType() {
 		List<ItemType> itList = this.itServices.getAllItemType();
 
 		if (itList == null) {
@@ -35,7 +35,7 @@ public class ItemTypeController {
 	}
 
 	@GetMapping("/itemtype/{id}")
-	public ResponseEntity<ItemType> handler2(@PathVariable("id") int id) {
+	public ResponseEntity<ItemType> getMappingByIdItemType(@PathVariable("id") int id) {
 		ItemType it1 = this.itServices.getItemTypeById(id);
 
 		if (it1 == null) {
@@ -46,7 +46,7 @@ public class ItemTypeController {
 	}
 
 	@PostMapping("/itemtype")
-	public ResponseEntity<ItemType> handler3(@RequestBody ItemType it) {
+	public ResponseEntity<ItemType> postMappingItemType(@RequestBody ItemType it) {
 		try {
 			ItemType it2 = this.itServices.addItemType(it);
 			return ResponseEntity.status(HttpStatus.CREATED).body(it);
@@ -56,7 +56,7 @@ public class ItemTypeController {
 	}
 
 	@PutMapping("/itemtype/{id}")
-	public ResponseEntity<ItemType> handler4(@RequestBody ItemType it, @PathVariable("id") int id) {
+	public ResponseEntity<ItemType> putMappingItemType(@RequestBody ItemType it, @PathVariable("id") int id) {
 		try {
 			ItemType it3 = this.itServices.updateItemType(it);
 			return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -67,7 +67,7 @@ public class ItemTypeController {
 	}
 
 	@DeleteMapping("/itemtype/{id}")
-	public ResponseEntity<Void> handler5(@PathVariable("id") int id) {
+	public ResponseEntity<Void> deleteMappingItemType(@PathVariable("id") int id) {
 		try {
 			this.itServices.deleteItemType(id);
 			return ResponseEntity.status(HttpStatus.ACCEPTED).build();

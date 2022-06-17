@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,14 +24,14 @@ public class ClassificationController {
 	private ClassificationServicesInterface clfServices;
 
 	@GetMapping("/classification")
-	public ResponseEntity<List<Classification>> handler1() {	
+	public ResponseEntity<List<Classification>> getMappingClassification() {	
 		List<Classification>clfList=this.clfServices.getAllClassification();
 		if(clfList.size()<=0)
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		return ResponseEntity.of(Optional.of(clfList));		
 	}
 	@GetMapping("/classification/{id}")
-	public ResponseEntity<Classification> handler2(@PathVariable("id") int id) {
+	public ResponseEntity<Classification> getMappingByIdClassification(@PathVariable("id") int id) {
 		Classification clf = this.clfServices.getClassificationById(id);
 
 		if (clf == null) {
@@ -40,8 +41,8 @@ public class ClassificationController {
 		return ResponseEntity.of(Optional.of(clf));
 	}
 
-	@PostMapping("/classification")
-	public ResponseEntity<Classification> handler3(@RequestBody Classification clf) {
+	@PostMapping(value ="/classification",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Classification> postMappingClassification(@RequestBody Classification clf) {
 		try {
 			this.clfServices.addClassification(clf);
 			return ResponseEntity.status(HttpStatus.CREATED).body(clf);
@@ -51,7 +52,7 @@ public class ClassificationController {
 	}
 
 	@DeleteMapping("/classification/{id}")
-	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
+	public ResponseEntity<Void> deleteMappingClassification(@PathVariable("id") int id) {
 		try {
 			this.clfServices.deleteClassification(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -62,7 +63,7 @@ public class ClassificationController {
 	}
 
 	@PutMapping("/classification/{id}")
-	public ResponseEntity<Classification> handler5(@RequestBody Classification clf, @PathVariable("id") int id) {
+	public ResponseEntity<Classification> putMappingClassification(@RequestBody Classification clf, @PathVariable("id") int id) {
 		try {
 			this.clfServices.updateClassification(clf, id);
 			return ResponseEntity.of(Optional.of(clf));

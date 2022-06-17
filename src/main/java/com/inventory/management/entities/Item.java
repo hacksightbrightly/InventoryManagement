@@ -18,8 +18,8 @@ public class Item {
 	private ItemType itemtype;
 	private int code;
 	private String categories;
-	private int company_id;
-	private int stock_id;
+	private int companyId;
+	private int stockId;
 	@OneToOne(mappedBy = "item")
 	@JsonBackReference
 	private ItemDetails itemDetail;
@@ -32,15 +32,15 @@ public class Item {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Item(int uniqueID, ItemType itemtype, int code, String categories, int company_id, int stock_id,
+	public Item(int uniqueID, ItemType itemtype, int code, String categories, int companyId, int stockId,
 			ItemDetails itemDetail, Stock stock) {
 		super();
 		UniqueID = uniqueID;
 		this.itemtype = itemtype;
 		this.code = code;
 		this.categories = categories;
-		this.company_id = company_id;
-		this.stock_id = stock_id;
+		this.companyId = companyId;
+		this.stockId = stockId;
 		this.itemDetail = itemDetail;
 		this.stock = stock;
 	}
@@ -93,20 +93,20 @@ public class Item {
 		this.categories = categories;
 	}
 
-	public int getCompany_id() {
-		return company_id;
+	public int getCompanyId() {
+		return companyId;
 	}
 
-	public void setCompany_id(int company_id) {
-		this.company_id = company_id;
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
 
-	public int getStock_id() {
-		return stock_id;
+	public int getStockId() {
+		return stockId;
 	}
 
-	public void setStock_id(int stock_id) {
-		this.stock_id = stock_id;
+	public void setStockId(int stockId) {
+		this.stockId = stockId;
 	}
 
 }

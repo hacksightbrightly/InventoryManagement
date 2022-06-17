@@ -35,7 +35,7 @@ public class StockServices implements StockServicesInterface {
 		Stock stock = new Stock();
 		stock.setId(stock3.getId());
 		stock.setAvailableQty(stock3.getAvailableQty());
-		stock.setLocation_Code(stock3.getLocation_Code());
+		stock.setLocationCode(stock3.getLocationCode());
 		this.stockRepo.save(stock);
 		return stock;
 	}

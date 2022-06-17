@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inventory.management.entities.ItemDetails;
-import com.inventory.management.services.ItemDetailsServices;
 import com.inventory.management.services.ItemDetailsServicesInterface;
 
 @RestController
@@ -25,7 +24,7 @@ public class ItemDetailsController
 	private ItemDetailsServicesInterface itdServices;
 
 	@GetMapping("/itemDetails")
-	public ResponseEntity<List<ItemDetails>> handler1() {
+	public ResponseEntity<List<ItemDetails>> getMappingItemDetails() {
 		List<ItemDetails> itdList = this.itdServices.getAllItemDetails();
 
 		if (itdList.size() <= 0) {
@@ -36,7 +35,7 @@ public class ItemDetailsController
 	}
 
 	@GetMapping("/itemDetails/{id}")
-	public ResponseEntity<ItemDetails> handler2(@PathVariable("id") int id) {
+	public ResponseEntity<ItemDetails> getMappingByIdItemDetails(@PathVariable("id") int id) {
 		ItemDetails itd = this.itdServices.getItemDetailsById(id);
 
 		if (itd == null) {
@@ -47,7 +46,7 @@ public class ItemDetailsController
 	}
 
 	@PostMapping("/itemDetails")
-	public ResponseEntity<ItemDetails> handler3(@RequestBody ItemDetails itd) {
+	public ResponseEntity<ItemDetails> postMappingItemDetails(@RequestBody ItemDetails itd) {
 		try {
 			this.itdServices.addItemDetails(itd);
 			return ResponseEntity.status(HttpStatus.CREATED).body(itd);
@@ -57,7 +56,7 @@ public class ItemDetailsController
 	}
 
 	@DeleteMapping("/itemDetails/{id}")
-	public ResponseEntity<Void> handler4(@PathVariable("id") int id) {
+	public ResponseEntity<Void> deleteMappingItemDetails(@PathVariable("id") int id) {
 		try {
 			this.itdServices.deleteItemDetails(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -68,7 +67,7 @@ public class ItemDetailsController
 	}
 
 	@PutMapping("/itemDetails/{id}")
-	public ResponseEntity<ItemDetails> handler5(@RequestBody ItemDetails itd, @PathVariable("id") int id) {
+	public ResponseEntity<ItemDetails> putMappingItemDetails(@RequestBody ItemDetails itd, @PathVariable("id") int id) {
 		try {
 			this.itdServices.updateItemDetails(itd, id);
 			return ResponseEntity.of(Optional.of(itd));

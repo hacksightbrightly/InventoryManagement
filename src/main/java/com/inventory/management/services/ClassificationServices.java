@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.inventory.management.dao.ClassificationRepo;
 import com.inventory.management.entities.Classification;
 
-@Component
+@Service
 public class ClassificationServices implements ClassificationServicesInterface {
 	@Autowired
 	private ClassificationRepo clfRepo;
